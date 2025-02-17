@@ -11,6 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class page {
 	
@@ -55,6 +57,25 @@ public class page {
 	@FindBy(xpath=("//span[text()='Next']"))WebElement button;
 	
 	@FindBy(xpath=("//span[text()='Place Order']"))WebElement order;
+	
+	@FindBy(xpath=("/html/body/div[2]/header/div[2]/a/img"))WebElement logo;
+	
+	public void Title()
+	{
+		String Expectedtitle = "Home Page";
+		String actualtitle = driver.getTitle();
+		Assert.assertEquals(actualtitle, Expectedtitle, "page title doesnt match");
+			
+	}
+	
+	public void Logo()
+	{
+         SoftAssert s=new SoftAssert();
+		
+        Boolean LOGO=logo.isDisplayed();
+		s.assertTrue(LOGO);
+		s.assertAll();
+	}
 	
 	public void cart()
 	{

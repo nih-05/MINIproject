@@ -47,7 +47,8 @@ public class Test {
 	public void test01() throws InterruptedException
 	{
 		page pg=new page(driver);
-		
+		pg.Title();
+		pg.Logo();
 		pg.cart();
 		pg.jack();
 		pg.purplejac();
